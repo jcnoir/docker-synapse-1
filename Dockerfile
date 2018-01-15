@@ -1,4 +1,5 @@
 FROM alpine:3.7
+MAINTAINER Robert Beal <rob@kohi.uk>
 
 ENV VERSION=v0.26.0
 ARG UID=3400
@@ -49,4 +50,3 @@ VOLUME /config /data
 EXPOSE 8448 8008
 
 ENTRYPOINT ["/sbin/tini", "--", "entrypoint.sh"]
-CMD["python", "-m", "synapse.app.homeserver", "--config-path", "/config/homeserver.yaml"]
