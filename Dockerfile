@@ -41,7 +41,7 @@ RUN apk --no-cache add --virtual=build-dependencies \
   && pip install https://github.com/matrix-org/synapse/archive/$VERSION.tar.gz \
   && apk del --purge build-dependencies \
   && addgroup -g $GID synapse \
-  && adduser -u $UID -G synapse -S -h /data synapse \
+  && adduser -u $UID -G synapse -S synapse \
   && mkdir /config /data \
   && chown -R synapse /config /data
 
