@@ -20,7 +20,7 @@ docker run \
     robertbeal/synapse generate kohi.uk
 ```
 
-Some of the default config paths point at root, let's clean that up:
+Some of the default config paths point at root... let's clean that up:
 
 sed -i \
     -e '/database: / s@"/homeserver.db"@"/data/homeserver.db"@' \
