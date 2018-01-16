@@ -10,6 +10,7 @@ RUN apk --no-cache add --virtual=build-dependencies \
     python2-dev \
   && apk --no-cache add \
     ca-certificates \
+    curl \
     py2-asn1 \
     py2-asn1-modules \
     py2-bcrypt \
@@ -48,5 +49,6 @@ RUN apk --no-cache add --virtual=build-dependencies \
 COPY entrypoint.sh /usr/local/bin
 VOLUME /config /data
 EXPOSE 8448 8008
+HEALTHCHECK --interval=30s --retries=3 CMD curl --fail http://localhost:8008 || exit 1
 
 ENTRYPOINT ["/sbin/tini", "--", "entrypoint.sh"]
