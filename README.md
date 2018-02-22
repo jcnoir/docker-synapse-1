@@ -44,6 +44,7 @@ sed -i \
 ```
 docker run \
     --name synapse \
+    --init \
     --rm \
     --read-only
     -v /var/synapse/config:/config:ro \
