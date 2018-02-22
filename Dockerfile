@@ -38,7 +38,6 @@ RUN apk --no-cache add --virtual=build-dependencies \
     py-twisted \
     shadow \
     su-exec \
-    tini \
   && pip install https://github.com/matrix-org/synapse/archive/$VERSION.tar.gz \
   && apk del --purge build-dependencies \
   && addgroup -g $GID synapse \
@@ -51,4 +50,4 @@ VOLUME /config /data
 EXPOSE 8448 8008
 HEALTHCHECK --interval=30s --retries=3 CMD curl --fail http://localhost:8008 || exit 1
 
-ENTRYPOINT ["/sbin/tini", "--", "entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
