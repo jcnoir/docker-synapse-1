@@ -1,4 +1,4 @@
-# docker-synapse
+# synapse
 Production-grade, alpine-sized version of matrix.org's Synapse
 
 # User Mapping
@@ -18,6 +18,7 @@ You will need to generate a config, keys etc... Do so by adding "generate" and "
 ```
 docker run \
     --name synapse \
+    --init \
     --rm \
     -v $PWD/config:/config \
     -v $PWD/data:/data \
